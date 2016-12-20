@@ -1,8 +1,7 @@
 # Moon - AutoLoader
 A very simple Autoloader
 
-[ ![Codeship Status for damianopetrungaroteam/autoloader](https://codeship.com/projects/2668a8b0-7f52-0134-e48a-3e760c99ae07/status?branch=master)](https://codeship.com/projects/181894)
-
+[![Code Climate](https://codeclimate.com/github/moon-php/autoloading/badges/gpa.svg)](https://codeclimate.com/github/moon-php/autoloading) [![Build Status](https://travis-ci.org/moon-php/autoloading.svg?branch=master)](https://travis-ci.org/moon-php/autoloading)
 
 ## Introduction
 Autoloader is a standalone component incredibly easy.
