@@ -4,6 +4,9 @@ namespace Moon\Autoloader;
 
 class PsrAutoloaderTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Test that autoload has been registered
+     */
     public function testRegister()
     {
         $numberOfAutoloader = count(spl_autoload_functions());
@@ -13,6 +16,9 @@ class PsrAutoloaderTest extends \PHPUnit_Framework_TestCase
         $autoloader->unregister();
     }
 
+    /**
+     * Test that autoload has been unregistered
+     */
     public function testUnregister()
     {
         $numberOfAutoloader = count(spl_autoload_functions());
@@ -22,6 +28,9 @@ class PsrAutoloaderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(count(spl_autoload_functions()), $numberOfAutoloader);
     }
 
+    /**
+     * Test that namespaces is added
+     */
     public function testAddNamespace()
     {
         $autoloader = new PsrAutoloader();
@@ -44,6 +53,9 @@ class PsrAutoloaderTest extends \PHPUnit_Framework_TestCase
         $autoloader->unregister();
     }
 
+    /**
+     * Test that classes can be loaded after been registered
+     */
     public function testLoadClass()
     {
         $autoloader = new PsrAutoloader();
