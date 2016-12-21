@@ -1,5 +1,5 @@
 {
-  "name": "moon/autoloader",
+  "name": "moon-php/autoloader",
   "require-dev": {
     "phpunit/phpunit": "^5.6"
   },
