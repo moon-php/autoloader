@@ -19,7 +19,7 @@ class PsrAutoloader
      * @param string $directory Main directory for map the vendor classes
      * @param string $psr Specify only if is a PSR0
      */
-    public function addNamespace($namespace, $directory, $psr = self::PSR4)
+    public function addNamespace($namespace, $directory, $psr = self::PSR4): void
     {
         // Clean namespace and directory
         $namespace = trim($namespace, '\\');
@@ -42,7 +42,7 @@ class PsrAutoloader
      *
      * @return bool
      */
-    public function loadClass($class, $pos = null)
+    public function loadClass($class, $pos = null): bool
     {
         // If the position is null use the class length
         $pos = $pos ?: strlen($class);
@@ -85,9 +85,11 @@ class PsrAutoloader
             // If exists require it
             if (file_exists("$directory$filename.php")) {
                 require "$directory$filename.php";
+
                 return true;
             }
         }
+
         return false;
     }
 
@@ -97,7 +99,7 @@ class PsrAutoloader
      * @param bool $prepend
      * @return bool
      */
-    public function register($prepend = false)
+    public function register($prepend = false): bool
     {
         return spl_autoload_register([$this, 'loadClass'], true, $prepend);
     }
@@ -107,7 +109,7 @@ class PsrAutoloader
      *
      * @return bool
      */
-    public function unregister()
+    public function unregister(): bool
     {
         return spl_autoload_unregister([$this, 'loadClass']);
     }

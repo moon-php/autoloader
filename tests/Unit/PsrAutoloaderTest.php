@@ -1,8 +1,11 @@
 <?php
 
-namespace Moon\Autoloader;
+namespace Moon\Autoloader\Unit;
 
-class PsrAutoloaderTest extends \PHPUnit_Framework_TestCase
+use Moon\Autoloader\PsrAutoloader;
+use PHPUnit\Framework\TestCase;
+
+class PsrAutoloaderTest extends TestCase
 {
     /**
      * Test that autoload has been registered

@@ -1,7 +1,10 @@
 {
   "name": "moon-php/autoloader",
+  "require": {
+    "php": ">=7.1"
+  },
   "require-dev": {
-    "phpunit/phpunit": "^5.6"
+    "phpunit/phpunit": "^6.1"
   },
   "authors": [
     {
@@ -12,6 +15,11 @@
   "autoload": {
     "psr-4": {
       "Moon\\Autoloader\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Moon\\Autoloader\\Unit\\": "tests/Unit/"
     }
   }
 }

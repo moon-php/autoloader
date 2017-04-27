@@ -12,7 +12,7 @@ class MapAutoloader
      * @param string $namespace Namespace for the vendor
      * @param string $file File .php to autoload
      */
-    public function addNamespace($namespace, $file)
+    public function addNamespace($namespace, $file): void
     {
         $namespace = trim($namespace, '\\');
         $this->namespaces[$namespace] = $file;
@@ -25,12 +25,14 @@ class MapAutoloader
      *
      * @return bool
      */
-    public function loadClass($class)
+    public function loadClass($class): bool
     {
         if (file_exists($this->namespaces[$class])) {
             require "{$this->namespaces[$class]}";
+
             return true;
         }
+
         return false;
     }
 
@@ -40,7 +42,7 @@ class MapAutoloader
      * @param bool $prepend
      * @return bool
      */
-    public function register($prepend = false)
+    public function register($prepend = false): bool
     {
         return spl_autoload_register([$this, 'loadClass'], true, $prepend);
     }
@@ -50,7 +52,7 @@ class MapAutoloader
      *
      * @return bool
      */
-    public function unregister()
+    public function unregister(): bool
     {
         return spl_autoload_unregister([$this, 'loadClass']);
     }

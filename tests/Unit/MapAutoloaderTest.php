@@ -1,8 +1,11 @@
 <?php
 
-namespace Moon\Autoloader;
+namespace Moon\Autoloader\Unit;
 
-class MapAutoloaderTest extends \PHPUnit_Framework_TestCase
+use Moon\Autoloader\MapAutoloader;
+use PHPUnit\Framework\TestCase;
+
+class MapAutoloaderTest extends TestCase
 {
     /**
      * Test that autoload has been registered
