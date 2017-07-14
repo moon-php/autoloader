@@ -14,7 +14,7 @@ class MapAutoloader
      * @param string $namespace Namespace for the vendor
      * @param string $file File .php to autoload
      */
-    public function addNamespace($namespace, $file): void
+    public function addNamespace(string $namespace, string $file): void
     {
         $namespace = trim($namespace, '\\');
         $this->namespaces[$namespace] = $file;
@@ -27,7 +27,7 @@ class MapAutoloader
      *
      * @return bool
      */
-    public function loadClass($class): bool
+    public function loadClass(string $class): bool
     {
         if (file_exists($this->namespaces[$class])) {
             require "{$this->namespaces[$class]}";

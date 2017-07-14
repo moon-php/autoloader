@@ -21,7 +21,7 @@ class PsrAutoloader
      * @param string $directory Main directory for map the vendor classes
      * @param string $psr Specify only if is a PSR0
      */
-    public function addNamespace($namespace, $directory, $psr = self::PSR4): void
+    public function addNamespace(string $namespace, string $directory, string $psr = self::PSR4): void
     {
         // Clean namespace and directory
         $namespace = trim($namespace, '\\');
@@ -44,7 +44,7 @@ class PsrAutoloader
      *
      * @return bool
      */
-    public function loadClass($class, $pos = null): bool
+    public function loadClass(string $class, int $pos = null): bool
     {
         // If the position is null use the class length
         $pos = $pos ?: strlen($class);
