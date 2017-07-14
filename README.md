@@ -1,45 +1,34 @@
-# Moon - AutoLoader
-A very simple Autoloader
+# Moon - Autoloader
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/build.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/build-status/master)
 
-## Introduction
-Autoloader is a standalone component incredibly easy.
+###[Documentation](http://moon-php.com/docs/autoloader/)
 
-It's a minimal autoloader with support for PSR4 and PSR0.
+## Tests
 
-It also support a map autoloader.
+To execute the test suite, you'll need phpunit.
+_It's a dev-dependency of this package_
 
+```bash
+$ php vendon/bin/phpunit
+```
 
-## Usage
+## Contributing
 
-The autoloader has 2 different classes, one for PSR4/0 and another one for manual mapping.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-Both has register and unregister methods for create or destroy an autoloader instance.
- 
-#### PSRAutoloader
+## Learn More
 
-    $autoloader = new PsrAutoloader();
-    $autoloader->addNamespace('JohnSmith\\Container\\', 'vendor/JohnSmith/Container/src');
-    $autoloader->addNamespace('JohnSmith\\Logger\\', 'vendor/JohnSmith/Logger/src');
-    $autoloader->addNamespace('MarkBuzz\\Router\\', 'vendor/MarkBuzz/Router/src//MarkBuzz/Router/', PsrAutoloader::PSR0);
-    $autoloader->register(); // For enable this autoloader 
-    
-    // Now you can create object without require all the files
-    $container = new JohnSmith\Container\Container();
-    $logger = new JohnSmith\Logger\StaticLogger();
-    
-    $autoloader->unregister(); // For disable this autoloader
+Learn more at these links:
 
-#### MapAutoloader
+- [Website](http://moon-php.com)
 
-    $autoloader = new MapAutoloader();
-    $autoloader->addNamespace('JohnSmith\\Package\\Class', 'vendor/JohnSmith/Package/main/common/mainClass.php');
-    $autoloader->register(); // For enable this autoloader
-    
-    // Now you can create object without require all the files
-    $container = new JohnSmith\Package\Class();
-    
-    $autoloader->unregister(); // For disable this autoloader
+## Security
+
+If you discover security related issues, please email damianopetrungaro@gmail.com instead of using the issue tracker.
+
+## License
+
+The Moon Autoloader is licensed under the MIT license. See [License File](LICENSE.md) for more information.
