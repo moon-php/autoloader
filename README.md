@@ -1,7 +1,9 @@
 # Moon - AutoLoader
 A very simple Autoloader
 
-[![Code Climate](https://codeclimate.com/github/moon-php/autoloading/badges/gpa.svg)](https://codeclimate.com/github/moon-php/autoloading) [![Build Status](https://travis-ci.org/moon-php/autoloading.svg?branch=master)](https://travis-ci.org/moon-php/autoloading)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/build.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/build-status/master)
 
 ## Introduction
 Autoloader is a standalone component incredibly easy.
