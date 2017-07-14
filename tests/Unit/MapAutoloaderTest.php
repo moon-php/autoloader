@@ -58,13 +58,16 @@ class MapAutoloaderTest extends TestCase
     public function testLoadClass()
     {
         $autoloader = new MapAutoloader();
-        $autoloader->addNamespace('\\Sample\\', 'tests/Unit/Vendor/Map/Sub/SubThree/Sample.php');
-        $autoloader->addNamespace('BaseExample\\', 'tests/Unit/Vendor/Map/Sub/SubTwo/BaseExample.php');
-        $autoloader->register();
+        $autoloader->addNamespace('BaseExample', 'tests/Unit/Vendor/Map/Sub/SubTwo/BaseExample.php');
+        $this->assertTrue($autoloader->loadClass(\BaseExample::class));
+    }
 
-        $this->assertInstanceOf(\Sample::class, new \Sample());
-        $this->assertInstanceOf(\BaseExample::class, new \BaseExample());
-
-        $autoloader->unregister();
+    /**
+     * Test that classes return false if can't be loaded
+     */
+    public function testLoadClassReturnFalse()
+    {
+        $autoloader = new MapAutoloader();
+        $this->assertFalse($autoloader->loadClass(\BaseExample::class));
     }
 }

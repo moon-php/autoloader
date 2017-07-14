@@ -57,7 +57,7 @@ class PsrAutoloaderTest extends TestCase
     }
 
     /**
-     * Test that classes can be loaded after been registered
+     * Test that classes can be loaded after been added
      */
     public function testLoadClass()
     {
@@ -65,12 +65,19 @@ class PsrAutoloaderTest extends TestCase
         $autoloader->addNamespace('Foo\\Oof\\', 'tests/Unit/Vendor/Foo/Oof', PsrAutoloader::PSR0);
         $autoloader->addNamespace('Bar\\Rab\\', 'tests/Unit/Vendor/Bar/Rab');
         $autoloader->addNamespace('Fuz\\Zuf\\', 'tests/Unit/Vendor/Fuz/Zuf');
-        $autoloader->register();
+        $this->assertTrue($autoloader->loadClass(\Bar\Rab\Smile::class));
+        $this->assertTrue($autoloader->loadClass(\Foo\Oof\Alien::class));
+        $this->assertTrue($autoloader->loadClass(\Foo\Oof\Sub_One_Two_File::class));
+    }
 
-        $this->assertInstanceOf(\Bar\Rab\Smile::class, new \Bar\Rab\Smile());
-        $this->assertInstanceOf(\Foo\Oof\Alien::class, new \Foo\Oof\Alien());
-        $this->assertInstanceOf(\Foo\Oof\Sub_One_Two_File::class, new \Foo\Oof\Sub_One_Two_File());
-
-        $autoloader->unregister();
+    /**
+     * Test that classes return false when can't be added
+     */
+    public function testLoadClassReturnFalse()
+    {
+        $autoloader = new PsrAutoloader();
+        $this->assertFalse($autoloader->loadClass(\Bar\Rab\Smile::class));
+        $autoloader->addNamespace('Foo\\Oof\\', 'tests/Unit/Vendor/Foo/Oof', PsrAutoloader::PSR0);
+        $this->assertFalse($autoloader->loadClass(\Foo\Oof\AlienNotExists::class));
     }
 }

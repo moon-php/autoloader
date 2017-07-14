@@ -6,6 +6,9 @@ namespace Moon\Autoloader;
 
 class MapAutoloader
 {
+    /**
+     * @var array $namespaces
+     */
     private $namespaces = [];
 
     /**
@@ -29,7 +32,7 @@ class MapAutoloader
      */
     public function loadClass(string $class): bool
     {
-        if (file_exists($this->namespaces[$class])) {
+        if (isset($this->namespaces[$class]) && file_exists($this->namespaces[$class])) {
             require "{$this->namespaces[$class]}";
 
             return true;
