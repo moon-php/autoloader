@@ -4,7 +4,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/build.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/build-status/master)
 
-###[Documentation](http://moon-php.com/docs/autoloader/)
+### [Documentation](http://moon-php.com/docs/autoloader/)
 
 ## Tests
 
