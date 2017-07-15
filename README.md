@@ -6,7 +6,7 @@
 
 ## Official Documentation
 
-Documentation can be found on the [Moon website](http://moon-php.com/docs/autoloader/).
+Documentation can be found on the [Moon website](http://www.moon-php.com/docs/autoloader/).
 
 ## Tests
 
