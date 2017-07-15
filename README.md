@@ -4,7 +4,9 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/moon-php/autoloader/badges/build.png?b=master)](https://scrutinizer-ci.com/g/moon-php/autoloader/build-status/master)
 
-### [Documentation](http://moon-php.com/docs/autoloader/)
+## Official Documentation
+
+Documentation can be found on the [Moon website](http://moon-php.com/docs/autoloader/).
 
 ## Tests
 
@@ -23,7 +25,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 Learn more at these links:
 
-- [Website](http://moon-php.com)
+- [Moon Website](http://www.moon-php.com)
 
 ## Security
 
