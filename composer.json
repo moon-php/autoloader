@@ -1,6 +1,8 @@
 {
   "name": "moon-php/autoloader",
   "description": "A very simple Autoloader with support for PSR4 and PSR0.",
+  "license": "MIT",
+  "homepage": "https://www.moon-php.com/",
   "require": {
     "php": ">=7.1"
   },
