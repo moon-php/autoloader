@@ -1,0 +1,18 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t moon/autoloader .
+  - docker run --name autoloader -itd -e "TRAVIS=$TRAVIS" -e "TRAVIS_JOB_ID=$TRAVIS_JOB_ID" moon/autoloader bash
+
+
+script:
+  - docker exec autoloader /bin/sh -c "php vendor/bin/php-cs-fixer fix --dry-run --diff  --config=.php_cs.dist"
+  - docker exec autoloader /bin/sh -c "php vendor/bin/phpunit --coverage-clover clover.xml"
+
+after_success:
+  - docker exec autoloader /bin/sh -c "php vendor/bin/php-coveralls -x clover.xml -o coveralls-upload.json"

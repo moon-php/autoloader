@@ -1,0 +1,7 @@
+includes:
+	- vendor/phpstan/phpstan/conf/config.levelmax.neon
+parameters:
+  autoload_directories:
+    - tests/Unit/Vendor
+  autoload_files:
+    - tests/Unit/Vendor/Foo/Oof/Sub/One/Two/File.php

@@ -1,7 +1,8 @@
 <?php
 
-namespace Fuz\Zuf;
+declare(strict_types=1);
 
+namespace Fuz\Zuf;
 
 class Classe
 {

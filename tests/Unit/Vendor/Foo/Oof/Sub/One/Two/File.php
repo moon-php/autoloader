@@ -1,8 +1,9 @@
 <?php
 
-namespace Foo\Oof;
+declare(strict_types=1);
 
+namespace Foo\Oof\Sub\One\Two;
 
-class Sub_One_Two_File
+class File
 {
 }
