@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Moon\Autoloader\Unit;
 
 use Moon\Autoloader\MapAutoloader;
@@ -8,33 +10,33 @@ use PHPUnit\Framework\TestCase;
 class MapAutoloaderTest extends TestCase
 {
     /**
-     * Test that autoload has been registered
+     * Test that autoload has been registered.
      */
-    public function testRegister()
+    public function testRegister(): void
     {
-        $numberOfAutoloader = count(spl_autoload_functions());
+        $numberOfAutoloader = \count(\spl_autoload_functions() ?: []);
         $autoloader = new MapAutoloader();
         $autoloader->register();
-        $this->assertEquals($numberOfAutoloader + 1, count(spl_autoload_functions()));
+        $this->assertEquals($numberOfAutoloader + 1, \count(\spl_autoload_functions() ?: []));
         $autoloader->unregister();
     }
 
     /**
-     * Test that autoload has been unregistered
+     * Test that autoload has been unregistered.
      */
-    public function testUnregister()
+    public function testUnregister(): void
     {
-        $numberOfAutoloader = count(spl_autoload_functions());
+        $numberOfAutoloader = \count(\spl_autoload_functions() ?: []);
         $autoloader = new MapAutoloader();
         $autoloader->register();
         $autoloader->unregister();
-        $this->assertEquals(count(spl_autoload_functions()), $numberOfAutoloader);
+        $this->assertEquals(\count(\spl_autoload_functions() ?: []), $numberOfAutoloader);
     }
 
     /**
-     * Test that namespaces is added
+     * Test that namespaces is added.
      */
-    public function testAddNamespace()
+    public function testAddNamespace(): void
     {
         $autoloader = new MapAutoloader();
         $autoloader->addNamespace('BaseExample\\', 'tests/Unit/Vendor/Map/Sub/SubTwo/BaseExample.php');
@@ -53,7 +55,7 @@ class MapAutoloaderTest extends TestCase
     }
 
     /**
-     * Test that classes can be loaded after been registered
+     * Test that classes can be loaded after been registered.
      */
     public function testLoadClass()
     {
@@ -63,7 +65,7 @@ class MapAutoloaderTest extends TestCase
     }
 
     /**
-     * Test that classes return false if can't be loaded
+     * Test that classes return false if can't be loaded.
      */
     public function testLoadClassReturnFalse()
     {

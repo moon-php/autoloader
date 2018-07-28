@@ -1,7 +1,8 @@
 <?php
 
-namespace Foo\Oof;
+declare(strict_types=1);
 
+namespace Foo\Oof;
 
 class Alien
 {

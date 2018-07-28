@@ -7,24 +7,24 @@ namespace Moon\Autoloader;
 class MapAutoloader
 {
     /**
-     * @var array $namespaces
+     * @var array
      */
     private $namespaces = [];
 
     /**
-     * Map a namespace to a file
+     * Map a namespace to a file.
      *
      * @param string $namespace Namespace for the vendor
-     * @param string $file File .php to autoload
+     * @param string $file      File .php to autoload
      */
     public function addNamespace(string $namespace, string $file): void
     {
-        $namespace = trim($namespace, '\\');
+        $namespace = \trim($namespace, '\\');
         $this->namespaces[$namespace] = $file;
     }
 
     /**
-     * Require the mapped namespace if exists
+     * Require the mapped namespace if exists.
      *
      * @param string $class Class name to search
      *
@@ -32,7 +32,7 @@ class MapAutoloader
      */
     public function loadClass(string $class): bool
     {
-        if (isset($this->namespaces[$class]) && file_exists($this->namespaces[$class])) {
+        if (isset($this->namespaces[$class]) && \file_exists($this->namespaces[$class])) {
             require "{$this->namespaces[$class]}";
 
             return true;
@@ -42,23 +42,24 @@ class MapAutoloader
     }
 
     /**
-     * Register the autoloader
+     * Register the autoloader.
      *
      * @param bool $prepend
+     *
      * @return bool
      */
     public function register($prepend = false): bool
     {
-        return spl_autoload_register([$this, 'loadClass'], true, $prepend);
+        return \spl_autoload_register([$this, 'loadClass'], true, $prepend);
     }
 
     /**
-     * Unregister the autoloader
+     * Unregister the autoloader.
      *
      * @return bool
      */
     public function unregister(): bool
     {
-        return spl_autoload_unregister([$this, 'loadClass']);
+        return \spl_autoload_unregister([$this, 'loadClass']);
     }
 }
